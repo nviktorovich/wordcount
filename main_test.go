@@ -20,7 +20,7 @@ func TestWordcount(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			old, reader, writer := captureStdout()
-			os.Args = []string{"wordcount.go", test.in}
+			os.Args = []string{"main.go", test.in}
 			main()
 			got := restoreStdout(old, reader, writer)
 			if got != test.want {
